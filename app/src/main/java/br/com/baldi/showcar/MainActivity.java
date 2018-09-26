@@ -3,6 +3,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import br.com.baldi.showcar.fragments.ListFragment;
+import br.com.baldi.showcar.fragments.LoginFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -11,11 +14,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
 
         //Chamar o Fragment Manager
-       // getSupportFragmentManager().beginTransaction().add(  )
-
-
-
-
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, new LoginFragment())
+                .commit();
 
 
     }
