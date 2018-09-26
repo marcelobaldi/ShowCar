@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ShowCar</string>
+
+    <!--
+    LOGIN
+    -->
+    <string name="login_button_text">ENTRAR</string>
 </resources>
