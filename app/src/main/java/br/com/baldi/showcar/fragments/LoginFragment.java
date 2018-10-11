@@ -10,11 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import br.com.baldi.showcar.R;
+import br.com.baldi.showcar.network.RestClient;
+import br.com.baldi.showcar.presenters.LoginPresenter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment implements LoginPresenter {
 
     @BindView( R.id.edt_email )
     EditText edtEmail;
@@ -38,5 +40,18 @@ public class LoginFragment extends Fragment {
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace( R.id.fragment_container, new ListFragment() )
                 .commit();  //excecutando a operação (chamando);
+
+      // vai precisar do MVP
+       //  getController().login();
+    }
+
+    @Override
+    public void onSucess() {
+
+    }
+
+    @Override
+    public void onError() {
+
     }
 }
