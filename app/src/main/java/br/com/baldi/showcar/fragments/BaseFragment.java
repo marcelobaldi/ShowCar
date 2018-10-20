@@ -13,8 +13,11 @@ import br.com.baldi.showcar.Models.MainModel;
 import br.com.baldi.showcar.R;
 import br.com.baldi.showcar.controllers.MainController;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public abstract class BaseFragment extends Fragment {
+
+    private Unbinder unbinder;
 
     public abstract int getLayoutResource();
 
@@ -23,10 +26,15 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        unbinder = ButterKnife.bind( this, view );
+        initComponents( view );
+        super.onViewCreated( view, savedInstanceState );
+    }
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(getLayoutResource(), container, false);
-        initComponents( rootView );
-        ButterKnife.bind(rootView);
         return rootView;
     }
 
@@ -38,4 +46,9 @@ public abstract class BaseFragment extends Fragment {
         return getController().getModel();
     }
 
+    @Override
+    public void onDestroyView() {
+        unbinder.unbind();
+        super.onDestroyView();
+    }
 }

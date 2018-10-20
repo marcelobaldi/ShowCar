@@ -24,6 +24,7 @@ public class LoginFragment extends BaseFragment implements LoginPresenter {
     @BindView( R.id.edt_password )
     EditText edtPassword;
 
+
     @Override
     public int getLayoutResource() {
         return R.layout.login_fragment;
@@ -34,6 +35,9 @@ public class LoginFragment extends BaseFragment implements LoginPresenter {
 //              getActivity().getSupportFragmentManager().beginTransaction()
 //                .replace( R.id.fragment_container, new ListFragment() )
 //                .commit();  //excecutando a operação (chamando);
+
+        //TAREFA -
+        // A)  Chamar loading
 
         if(true){
             getModel().setEmail( edtEmail.getText().toString() );
@@ -55,5 +59,10 @@ public class LoginFragment extends BaseFragment implements LoginPresenter {
     @Override
     public void onError() {
 
+    }
+
+    @Override
+    public void onComplete() {
+        //TODO dimiss loader
     }
 }
