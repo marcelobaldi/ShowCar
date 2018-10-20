@@ -8,10 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import br.com.baldi.showcar.R;
 
-public class ListFragment extends Fragment {
-
+public class ListFragment extends BaseFragment {
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate( R.layout.list_fragment, container, false);
+    public int getLayoutResource() {
+        return R.layout.list_fragment;
     }
 }

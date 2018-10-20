@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginFragment extends Fragment implements LoginPresenter {
+public class LoginFragment extends BaseFragment implements LoginPresenter {
 
     @BindView( R.id.edt_email )
     EditText edtEmail;
@@ -24,30 +24,32 @@ public class LoginFragment extends Fragment implements LoginPresenter {
     @BindView( R.id.edt_password )
     EditText edtPassword;
 
-    protected Button btnLogin;
-
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate( R.layout.login_fragment, container, false);
-        ButterKnife.bind(rootView);
-        return rootView;
+    public int getLayoutResource() {
+        return R.layout.login_fragment;
     }
 
     @OnClick(R.id.btn_login)
     public void onClick(){
-        Toast.makeText(getContext(), "LOGIN OK", Toast.LENGTH_SHORT).show();
+//              getActivity().getSupportFragmentManager().beginTransaction()
+//                .replace( R.id.fragment_container, new ListFragment() )
+//                .commit();  //excecutando a operação (chamando);
 
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace( R.id.fragment_container, new ListFragment() )
-                .commit();  //excecutando a operação (chamando);
-
-      // vai precisar do MVP
-       //  getController().login();
+        if(true){
+            getModel().setEmail( edtEmail.getText().toString() );
+            getModel().setPassword( edtPassword.getText().toString() );
+            getController().login( this );
+        }else{
+            //TAREFA -
+            // A)  fazer checagem se e-mail e senha estão preenchidos
+            //B) Mostrar SnackBar Com mensagem "E-mail e senha invalidos"
+            //C) checar se o e-mail está cokm padrão certo (conferir @, ., etc) e a senha maior que 6 caracteres
+        }
     }
 
     @Override
     public void onSucess() {
-
+        Toast.makeText( getContext(), "Sucesso", Toast.LENGTH_SHORT ).show();
     }
 
     @Override
