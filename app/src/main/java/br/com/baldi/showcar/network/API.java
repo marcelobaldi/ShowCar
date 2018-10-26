@@ -5,10 +5,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface API {
-
     @GET("/auth")
     Observable<LoginResponseDTO> login(@Query("email")String email, @Query( "password") String password);
-
-
-
 }

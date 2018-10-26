@@ -1,5 +1,4 @@
 package br.com.baldi.showcar.dtos;
-
 import com.google.gson.annotations.SerializedName;
 
 public class RestResponseDTO {

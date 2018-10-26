@@ -1,7 +1,7 @@
 package br.com.baldi.showcar.controllers;
-
 import br.com.baldi.showcar.Models.MainModel;
 import br.com.baldi.showcar.dtos.LoginResponseDTO;
+import br.com.baldi.showcar.dtos.RestResponseDTO;
 import br.com.baldi.showcar.fragments.BaseFragment;
 import br.com.baldi.showcar.network.RestClient;
 import br.com.baldi.showcar.presenters.LoginPresenter;
@@ -32,6 +32,11 @@ public class MainController {
                     @Override
                     public void onSuccess(LoginResponseDTO loginResponseDTO) {
                         loginPresenter.onSucess();
+                    }
+
+                    @Override
+                    public void onFail(RestResponseDTO restResponseDTO) {
+
                     }
 
                     @Override

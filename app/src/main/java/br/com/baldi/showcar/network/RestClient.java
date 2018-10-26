@@ -4,9 +4,7 @@ import br.com.baldi.showcar.dtos.LoginResponseDTO;
 import io.reactivex.Observable;
 
 public class RestClient {
-
     public Observable<LoginResponseDTO> login(MainModel model){
         return RetrofitConfiguration.getApi().login( model.getEmail(), model.getPassword());
     }
-
 }

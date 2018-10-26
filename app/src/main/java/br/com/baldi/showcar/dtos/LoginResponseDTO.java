@@ -1,15 +1,14 @@
 package br.com.baldi.showcar.dtos;
-
 import com.google.gson.annotations.SerializedName;
 
-public class LoginResponseDTO extends RestResponseDTO {
-    /*
-    {
-           "name":"Marcelo Baldi",
-           "token": "497329479872134KFHSD",
-           "e-mail": "marcelobaldi@hotmail.com"
-        }
-     */
+import java.io.Serializable;
+
+public class LoginResponseDTO extends RestResponseDTO implements Serializable {
+    //Dados do Web-Service
+    //"name":"Marcelo Baldi",
+    //"token": "497329479872134KFHSD",
+    //"e-mail": "marcelobaldi@hotmail.com"
+
 
     @SerializedName( "name" )
     private String nome;

@@ -10,7 +10,6 @@ import br.com.baldi.showcar.fragments.ListFragment;
 import br.com.baldi.showcar.fragments.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
-
     private MainController mController;
     private MainModel mModel;
 
@@ -19,19 +18,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView(R.layout.main_activity);
 
+        //Instanciar Classes
         mModel = new MainModel();
         mController = new MainController( mModel );
 
+        //Verificar Se Usuário Esta Logado
         boolean isLogged = false;
-
         Fragment currentFragment = isLogged ? new ListFragment() : new LoginFragment();
 
         //Chamar o Fragment Manager
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, currentFragment)
                 .commit();
-
-
     }
 
     public MainController getMainController() {
